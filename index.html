@@ -39,9 +39,9 @@
             }
         }
 
-        /* Banner encabezado con imagen */
+        /* Banner encabezado con imagen - AHORA EN ROJO Y NEGRO */
         .banner {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #e74c3c 0%, #2c3e50 100%);
             color: white;
             text-align: center;
             padding: 30px 20px 40px 20px;
@@ -71,7 +71,7 @@
             margin-top: 8px;
         }
 
-        /* Descripción */
+        /* Descripción - borde rojo */
         .descripcion {
             background: #f0f4ff;
             padding: 18px;
@@ -81,11 +81,11 @@
             color: #333;
             font-size: 1rem;
             line-height: 1.5;
-            border-left: 5px solid #667eea;
+            border-left: 5px solid #e74c3c; /* Rojo */
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* Botones desplegables con imágenes PNG */
+        /* Botones desplegables - CUADRADOS y con nueva paleta */
         .dropdown-section {
             margin-bottom: 15px;
         }
@@ -93,24 +93,24 @@
         .dropdown-btn {
             width: 100%;
             background: white;
-            border: 2px solid #e0e7ff;
-            border-radius: 50px;
+            border: 2px solid #ccc; /* Gris neutro */
+            border-radius: 0; /* Cuadrado */
             padding: 12px 20px;
             display: flex;
             align-items: center;
             gap: 15px;
             font-size: 1.2rem;
             font-weight: 500;
-            color: #1f2b4b;
+            color: #1a1a1a; /* Casi negro */
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.03);
         }
 
         .dropdown-btn img {
-            width: 40px;   /* Tamaño fijo para las imágenes de los botones */
+            width: 40px;
             height: 40px;
-            object-fit: contain; /* Mantiene la proporción */
+            object-fit: contain;
         }
 
         .dropdown-btn span {
@@ -120,18 +120,18 @@
 
         .dropdown-btn .arrow {
             font-size: 1.2rem;
-            color: #94a3b8;
+            color: #7f8c8d; /* Gris oscuro */
             transition: transform 0.3s ease;
         }
 
         .dropdown-btn.active {
-            background: #eef2ff;
-            border-color: #667eea;
+            background: #fdeded; /* Rojo muy claro */
+            border-color: #e74c3c; /* Rojo */
         }
 
         .dropdown-btn.active .arrow {
             transform: rotate(180deg);
-            color: #667eea;
+            color: #e74c3c; /* Rojo */
         }
 
         /* Viñeta de opciones (se despliega) */
@@ -141,11 +141,9 @@
             padding-left: 35px;
             padding-right: 15px;
             background: #fafcff;
-            border-radius: 20px;
-            border: 1px solid #e0e7ff;
+            border-radius: 0; /* Cuadrado para mantener coherencia */
+            border: 1px solid #ccc;
             border-top: none;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
             max-height: 0;
             opacity: 0;
             overflow: hidden;
@@ -155,7 +153,7 @@
         }
 
         .dropdown-content.show {
-            max-height: 300px; /* Ajusta según contenido */
+            max-height: 300px;
             opacity: 1;
             padding-top: 15px;
             padding-bottom: 15px;
@@ -177,7 +175,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Footer sencillo (sin referencias) */
+        /* Footer sencillo */
         .footer {
             text-align: center;
             margin-top: 30px;
@@ -190,7 +188,6 @@
     <div class="container">
         <!-- Banner con imagen PNG -->
         <div class="banner">
-            <!-- Coloca aquí tu imagen PNG (recomendado: 600x200px) -->
             <img src="banner.png" alt="Logo del evento" class="banner-img">
             <h1>Promociones</h1>
             <p>¡Bienvenidos!</p>
@@ -202,21 +199,19 @@
             Descripcion
         </div>
 
-        <!-- Botón desplegable 1 - Fotografía -->
+        <!-- Botón desplegable 1 -->
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <!-- Imagen PNG para fotografía (40x40 px recomendado) -->
                 <img src="icono-foto.png" alt="Fotografía">
                 <span>Promo 1</span>
                 <i class="arrow">▼</i>
             </button>
             <ul class="dropdown-content">
                 <li>Promo</li>
-               
             </ul>
         </div>
 
-        <!-- Botón desplegable 2 - Música -->
+        <!-- Botón desplegable 2 -->
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
                 <img src="icono-musica.png" alt="Música">
@@ -228,7 +223,7 @@
             </ul>
         </div>
 
-        <!-- Botón desplegable 3 - Gastronomía -->
+        <!-- Botón desplegable 3 -->
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
                 <img src="icono-gastro.png" alt="Gastronomía">
@@ -242,7 +237,7 @@
 
         <!-- Footer simple -->
         <div class="footer">
-            <p>Organizado con ❤️ para el evento</p>
+            <p>Tail</p>
         </div>
     </div>
 
