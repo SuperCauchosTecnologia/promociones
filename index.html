@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Mi Sitio Móvil</title>
-    <!-- Font Awesome para los logos/imágenes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Mi Sitio del Evento</title>
     <style>
         * {
             margin: 0;
@@ -23,25 +21,41 @@
         }
 
         .container {
-            max-width: 480px; /* Ancho típico de móvil */
             width: 100%;
+            max-width: 480px; /* Ancho por defecto para móvil */
             background: white;
             border-radius: 30px 30px 20px 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             overflow: hidden;
             padding: 0 20px 30px 20px;
+            transition: max-width 0.3s ease;
         }
 
-        /* Banner encabezado */
+        /* Para pantallas más grandes (PC) */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 800px; /* Se extiende en PC */
+                padding: 0 30px 40px 30px;
+            }
+        }
+
+        /* Banner encabezado con imagen */
         .banner {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-align: center;
-            padding: 40px 20px;
-            margin: 0 -20px 20px -20px; /* para que se extienda de borde a borde */
+            padding: 30px 20px 40px 20px;
+            margin: 0 -20px 20px -20px;
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .banner-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 150px; /* Ajusta según tu imagen */
+            margin-bottom: 15px;
         }
 
         .banner h1 {
@@ -71,7 +85,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* Botones desplegables */
+        /* Botones desplegables con imágenes PNG */
         .dropdown-section {
             margin-bottom: 15px;
         }
@@ -81,7 +95,7 @@
             background: white;
             border: 2px solid #e0e7ff;
             border-radius: 50px;
-            padding: 15px 20px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -93,10 +107,10 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.03);
         }
 
-        .dropdown-btn i {
-            font-size: 1.8rem;
-            width: 32px;
-            color: #667eea; /* color del logo/icono */
+        .dropdown-btn img {
+            width: 40px;   /* Tamaño fijo para las imágenes de los botones */
+            height: 40px;
+            object-fit: contain; /* Mantiene la proporción */
         }
 
         .dropdown-btn span {
@@ -158,12 +172,12 @@
             border-bottom: none;
         }
 
-        /* Ajuste para móvil: mejorar área táctil */
+        /* Ajuste táctil para móvil */
         .dropdown-btn, .dropdown-content li {
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Footer opcional */
+        /* Footer sencillo (sin referencias) */
         .footer {
             text-align: center;
             margin-top: 30px;
@@ -174,81 +188,79 @@
 </head>
 <body>
     <div class="container">
-        <!-- Banner encabezado -->
+        <!-- Banner con imagen PNG -->
         <div class="banner">
-            <h1>Mi Banner</h1>
-            <p>Bienvenido a mi sitio móvil</p>
+            <!-- Coloca aquí tu imagen PNG (recomendado: 600x200px) -->
+            <img src="banner.png" alt="Logo del evento" class="banner-img">
+            <h1>Mi Evento</h1>
+            <p>¡Bienvenidos!</p>
         </div>
 
         <!-- Descripción -->
         <div class="descripcion">
-            <i class="fas fa-info-circle" style="color: #667eea; margin-right: 8px;"></i>
-            Este es un sitio de ejemplo con botones desplegables que contienen imágenes (iconos). Haz clic en cada botón para ver las opciones.
+            <span style="font-size: 1.2rem; margin-right: 8px;">📌</span>
+            Información importante del evento. Aquí puedes poner detalles como fecha, lugar o instrucciones.
         </div>
 
-        <!-- Botón desplegable 1 -->
+        <!-- Botón desplegable 1 - Fotografía -->
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <i class="fas fa-camera"></i> <!-- Imagen / logo -->
-                <span>Fotografía</span>
-                <i class="fas fa-chevron-down arrow"></i>
+                <!-- Imagen PNG para fotografía (40x40 px recomendado) -->
+                <img src="icono-foto.png" alt="Fotografía">
+                <span>Opciones de Fotografía</span>
+                <i class="arrow">▼</i>
             </button>
             <ul class="dropdown-content">
-                <li>📷 Retratos</li>
-                <li>🌅 Paisajes</li>
-                <li>🌙 Nocturnas</li>
-                <li>🎉 Eventos</li>
+                <li>📷 Sesión de retratos</li>
+                <li>🌅 Taller de paisajes</li>
+                <li>🌙 Fotografía nocturna</li>
+                <li>🎉 Cobertura de eventos</li>
             </ul>
         </div>
 
-        <!-- Botón desplegable 2 -->
+        <!-- Botón desplegable 2 - Música -->
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <i class="fas fa-music"></i> <!-- Imagen / logo -->
-                <span>Música</span>
-                <i class="fas fa-chevron-down arrow"></i>
+                <img src="icono-musica.png" alt="Música">
+                <span>Opciones de Música</span>
+                <i class="arrow">▼</i>
             </button>
             <ul class="dropdown-content">
-                <li>🎸 Rock</li>
-                <li>🎹 Pop</li>
-                <li>🎧 Electrónica</li>
-                <li>🎻 Clásica</li>
+                <li>🎸 Conciertos rock</li>
+                <li>🎹 Clases de piano</li>
+                <li>🎧 Producción musical</li>
+                <li>🎻 Ensambles clásicos</li>
             </ul>
         </div>
 
-        <!-- Botón desplegable 3 -->
+        <!-- Botón desplegable 3 - Gastronomía -->
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <i class="fas fa-utensils"></i> <!-- Imagen / logo -->
-                <span>Gastronomía</span>
-                <i class="fas fa-chevron-down arrow"></i>
+                <img src="icono-gastro.png" alt="Gastronomía">
+                <span>Opciones de Gastronomía</span>
+                <i class="arrow">▼</i>
             </button>
             <ul class="dropdown-content">
-                <li>🍕 Italiana</li>
-                <li>🍣 Japonesa</li>
-                <li>🌮 Mexicana</li>
-                <li>🥘 Española</li>
+                <li>🍕 Taller de pizza</li>
+                <li>🍣 Cata de sushi</li>
+                <li>🌮 Comida mexicana</li>
+                <li>🥘 Paella valenciana</li>
             </ul>
         </div>
 
-        <!-- Espacio inferior -->
+        <!-- Footer simple -->
         <div class="footer">
-            <p>Hecho con <i class="fas fa-heart" style="color: #e11d48;"></i> para GitHub Pages</p>
+            <p>Organizado con ❤️ para el evento</p>
         </div>
     </div>
 
     <script>
         function toggleDropdown(button) {
-            // Encuentra el contenido (la ul) hermano del botón
             const content = button.nextElementSibling;
-            
-            // Alternar clase 'show' en el contenido
             content.classList.toggle('show');
-            
-            // Alternar clase 'active' en el botón para cambiar la flecha
             button.classList.toggle('active');
 
-            // Cerrar otros desplegables (opcional, para mejor UX)
+            // Cerrar otros desplegables
             const allButtons = document.querySelectorAll('.dropdown-btn');
             allButtons.forEach(btn => {
                 if (btn !== button && btn.classList.contains('active')) {
@@ -258,7 +270,7 @@
             });
         }
 
-        // Cerrar desplegables si se hace clic fuera (opcional)
+        // Cerrar al hacer clic fuera
         document.addEventListener('click', function(event) {
             if (!event.target.closest('.dropdown-section')) {
                 const openButtons = document.querySelectorAll('.dropdown-btn.active');
