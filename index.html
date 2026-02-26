@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Mi Sitio del Evento</title>
+    <title>Promociones</title>
     <style>
         * {
             margin: 0;
@@ -22,7 +22,7 @@
 
         .container {
             width: 100%;
-            max-width: 480px; /* Ancho por defecto para móvil */
+            max-width: 480px;
             background: white;
             border-radius: 30px 30px 20px 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -31,17 +31,15 @@
             transition: max-width 0.3s ease;
         }
 
-        /* Para pantallas más grandes (PC) */
         @media (min-width: 768px) {
             .container {
-                max-width: 800px; /* Se extiende en PC */
+                max-width: 800px;
                 padding: 0 30px 40px 30px;
             }
         }
 
-        /* Banner encabezado con imagen - AHORA EN ROJO Y NEGRO */
         .banner {
-            background: linear-gradient(135deg, #e74c3c 0%, #2c3e50 100%);
+            background: linear-gradient(135deg, #e63946 0%, #2c3e50 100%);
             color: white;
             text-align: center;
             padding: 30px 20px 40px 20px;
@@ -54,7 +52,7 @@
         .banner-img {
             max-width: 100%;
             height: auto;
-            max-height: 150px; /* Ajusta según tu imagen */
+            max-height: 150px;
             margin-bottom: 15px;
         }
 
@@ -71,7 +69,6 @@
             margin-top: 8px;
         }
 
-        /* Descripción - borde rojo */
         .descripcion {
             background: #f0f4ff;
             padding: 18px;
@@ -81,11 +78,10 @@
             color: #333;
             font-size: 1rem;
             line-height: 1.5;
-            border-left: 5px solid #e74c3c; /* Rojo */
+            border-left: 5px solid #e63946;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* Botones desplegables - CUADRADOS y con nueva paleta */
         .dropdown-section {
             margin-bottom: 15px;
         }
@@ -93,15 +89,15 @@
         .dropdown-btn {
             width: 100%;
             background: white;
-            border: 2px solid #ccc; /* Gris neutro */
-            border-radius: 0; /* Cuadrado */
+            border: 2px solid #ccc;
+            border-radius: 0;
             padding: 12px 20px;
             display: flex;
             align-items: center;
             gap: 15px;
             font-size: 1.2rem;
             font-weight: 500;
-            color: #1a1a1a; /* Casi negro */
+            color: #1a1a1a;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.03);
@@ -120,28 +116,27 @@
 
         .dropdown-btn .arrow {
             font-size: 1.2rem;
-            color: #7f8c8d; /* Gris oscuro */
+            color: #7f8c8d;
             transition: transform 0.3s ease;
         }
 
         .dropdown-btn.active {
-            background: #fdeded; /* Rojo muy claro */
-            border-color: #e74c3c; /* Rojo */
+            background: #fdeded;
+            border-color: #e63946;
         }
 
         .dropdown-btn.active .arrow {
             transform: rotate(180deg);
-            color: #e74c3c; /* Rojo */
+            color: #e63946;
         }
 
-        /* Viñeta de opciones (se despliega) */
         .dropdown-content {
             list-style-type: disc;
             margin: 5px 0 15px 0;
             padding-left: 35px;
             padding-right: 15px;
             background: #fafcff;
-            border-radius: 0; /* Cuadrado para mantener coherencia */
+            border-radius: 0;
             border: 1px solid #ccc;
             border-top: none;
             max-height: 0;
@@ -170,12 +165,10 @@
             border-bottom: none;
         }
 
-        /* Ajuste táctil para móvil */
         .dropdown-btn, .dropdown-content li {
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Footer sencillo */
         .footer {
             text-align: center;
             margin-top: 30px;
@@ -186,56 +179,52 @@
 </head>
 <body>
     <div class="container">
-        <!-- Banner con imagen PNG -->
         <div class="banner">
-            <img src="banner.png" alt="Logo del evento" class="banner-img">
+            <img src="banner.png" alt="Banner" class="banner-img">
             <h1>Promociones</h1>
             <p>¡Bienvenidos!</p>
         </div>
 
-        <!-- Descripción -->
         <div class="descripcion">
-            <span style="font-size: 1.2rem; margin-right: 8px;"></span>
-            Descripcion
+            Descripción del evento o promociones.
         </div>
 
-        <!-- Botón desplegable 1 -->
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <img src="icono-foto.png" alt="Fotografía">
+                <img src="icono1.png" alt="Promo 1">
                 <span>Promo 1</span>
                 <i class="arrow">▼</i>
             </button>
             <ul class="dropdown-content">
-                <li>Promo</li>
+                <li>Detalle de promo 1</li>
+                <li>Otro detalle</li>
             </ul>
         </div>
 
-        <!-- Botón desplegable 2 -->
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <img src="icono-musica.png" alt="Música">
+                <img src="icono2.png" alt="Promo 2">
                 <span>Promo 2</span>
                 <i class="arrow">▼</i>
             </button>
             <ul class="dropdown-content">
-                <li>Promo</li>
+                <li>Detalle de promo 2</li>
+                <li>Otro detalle</li>
             </ul>
         </div>
 
-        <!-- Botón desplegable 3 -->
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <img src="icono-gastro.png" alt="Gastronomía">
+                <img src="icono3.png" alt="Promo 3">
                 <span>Promo 3</span>
                 <i class="arrow">▼</i>
             </button>
             <ul class="dropdown-content">
-                <li>Promo</li>
+                <li>Detalle de promo 3</li>
+                <li>Otro detalle</li>
             </ul>
         </div>
 
-        <!-- Footer simple -->
         <div class="footer">
             <p>Tail</p>
         </div>
@@ -247,7 +236,6 @@
             content.classList.toggle('show');
             button.classList.toggle('active');
 
-            // Cerrar otros desplegables
             const allButtons = document.querySelectorAll('.dropdown-btn');
             allButtons.forEach(btn => {
                 if (btn !== button && btn.classList.contains('active')) {
@@ -257,7 +245,6 @@
             });
         }
 
-        // Cerrar al hacer clic fuera
         document.addEventListener('click', function(event) {
             if (!event.target.closest('.dropdown-section')) {
                 const openButtons = document.querySelectorAll('.dropdown-btn.active');
