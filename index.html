@@ -41,8 +41,6 @@
         /* --- ENCABEZADO CON BANNER 1 --- */
         .banner {
             background: #2c3e50;
-            color: white;
-            text-align: center;
             margin: 0 -20px 20px -20px;
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
@@ -69,54 +67,55 @@
             border-left: 5px solid #e63946;
         }
 
-        /* --- BOTONES DE IMAGEN DESPLEGABLES (AJUSTADOS) --- */
+        /* --- BOTONES DE IMAGEN (DISEÑO DE CAJA) --- */
         .dropdown-section {
-            margin-bottom: 15px; /* Reducido un poco */
-            text-align: center; /* Centrar el botón dentro de la sección */
+            margin-bottom: 10px; /* Espacio entre secciones */
+            width: 100%;
         }
 
         .dropdown-btn {
-            background: none;
-            border: none;
-            padding: 0;
+            width: 100%; /* Ahora el botón ocupa todo el ancho disponible */
+            background: white; /* Fondo blanco pedido */
+            border: 1px solid #eee; /* Borde sutil */
+            padding: 15px; /* Espacio interno para que la imagen no toque los bordes */
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
             outline: none;
             border-radius: 15px;
-            overflow: hidden;
-            display: inline-block; /* Permitir ancho automático */
+            display: flex;
+            justify-content: center; /* Centra la imagen horizontalmente */
+            align-items: center; /* Centra la imagen verticalmente */
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             -webkit-tap-highlight-color: transparent;
         }
 
         .dropdown-btn:hover {
-            transform: scale(1.03); /* Efecto un poco más notable */
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Sombra al pasar el mouse */
+            border-color: #e63946;
+            background: #fffcfc;
         }
 
         .dropdown-btn img {
-            /* --- AQUÍ ESTÁ EL AJUSTE DE TAMAÑO --- */
-            width: auto; /* Ancho automático basado en la altura */
-            max-width: 100%; /* No superar el ancho del contenedor */
-            height: 80px; /* Altura fija para todos los botones */
-            /* --- FIN DEL AJUSTE --- */
+            height: 60px; /* Tamaño de la imagen controlado */
+            width: auto;
             display: block;
-            border-radius: 15px;
-            object-fit: contain; /* Asegurar que la imagen se vea completa */
+            object-fit: contain; /* No se estira */
+            transition: transform 0.3s ease;
         }
 
-        /* --- CONTENIDO DE LA LISTA --- */
+        /* --- CONTENIDO DE LA LISTA (MISMO ANCHO QUE EL BOTÓN) --- */
         .dropdown-content {
             list-style-type: none;
-            margin: 10px auto; /* Centrado y separado */
+            width: 100%; /* Mismo ancho que el botón */
             padding: 0 20px;
             background: #fafcff;
-            border-radius: 15px;
+            border-radius: 0 0 15px 15px; /* Redondeado solo abajo */
             border: 1px solid #eee;
-            max-width: 90%; /* Un poco más estrecho que los botones */
+            border-top: none;
+            margin-top: -5px; /* Para que parezca que sale de detrás del botón */
             max-height: 0;
             opacity: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
         }
 
         .dropdown-content.show {
@@ -127,13 +126,12 @@
         }
 
         .dropdown-content li {
-            padding: 10px 0;
+            padding: 12px 0;
             color: #444;
             font-size: 1rem;
             border-bottom: 1px dashed #ddd;
             display: flex;
             align-items: center;
-            text-align: left; /* Texto alineado a la izquierda */
         }
 
         .dropdown-content li::before {
