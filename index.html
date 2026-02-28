@@ -38,7 +38,7 @@
             }
         }
 
-        /* --- ENCABEZADO CON BANNER 1 --- */
+        /* --- ENCABEZADO --- */
         .banner {
             background: #2c3e50;
             margin: 0 -20px 20px -20px;
@@ -67,23 +67,23 @@
             border-left: 5px solid #e63946;
         }
 
-        /* --- BOTONES DE IMAGEN (DISEÑO DE CAJA) --- */
+        /* --- BOTONES DE IMAGEN --- */
         .dropdown-section {
-            margin-bottom: 10px; /* Espacio entre secciones */
+            margin-bottom: 10px;
             width: 100%;
         }
 
         .dropdown-btn {
-            width: 100%; /* Ahora el botón ocupa todo el ancho disponible */
-            background: white; /* Fondo blanco pedido */
-            border: 1px solid #eee; /* Borde sutil */
-            padding: 15px; /* Espacio interno para que la imagen no toque los bordes */
+            width: 100%;
+            background: white;
+            border: 1px solid #eee;
+            padding: 15px;
             cursor: pointer;
             outline: none;
             border-radius: 15px;
             display: flex;
-            justify-content: center; /* Centra la imagen horizontalmente */
-            align-items: center; /* Centra la imagen verticalmente */
+            justify-content: center;
+            align-items: center;
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             -webkit-tap-highlight-color: transparent;
@@ -95,23 +95,22 @@
         }
 
         .dropdown-btn img {
-            height: 60px; /* Tamaño de la imagen controlado */
+            height: 60px;
             width: auto;
             display: block;
-            object-fit: contain; /* No se estira */
-            transition: transform 0.3s ease;
+            object-fit: contain;
         }
 
-        /* --- CONTENIDO DE LA LISTA (MISMO ANCHO QUE EL BOTÓN) --- */
+        /* --- CONTENIDO DESPLEGABLE --- */
         .dropdown-content {
             list-style-type: none;
-            width: 100%; /* Mismo ancho que el botón */
-            padding: 0 20px;
+            width: 100%;
+            padding: 0 15px;
             background: #fafcff;
-            border-radius: 0 0 15px 15px; /* Redondeado solo abajo */
+            border-radius: 0 0 15px 15px;
             border: 1px solid #eee;
             border-top: none;
-            margin-top: -5px; /* Para que parezca que sale de detrás del botón */
+            margin-top: -5px;
             max-height: 0;
             opacity: 0;
             overflow: hidden;
@@ -119,7 +118,7 @@
         }
 
         .dropdown-content.show {
-            max-height: 500px;
+            max-height: 600px;
             opacity: 1;
             padding-top: 20px;
             padding-bottom: 20px;
@@ -127,18 +126,23 @@
 
         .dropdown-content li {
             padding: 12px 0;
-            color: #444;
-            font-size: 1rem;
+            color: #334155;
+            font-size: 0.95rem;
             border-bottom: 1px dashed #ddd;
             display: flex;
-            align-items: center;
+            justify-content: space-between; /* Alinea nombre a la izquierda y precio a la derecha */
+            align-items: flex-start;
+            gap: 10px;
         }
 
-        .dropdown-content li::before {
-            content: "•";
-            color: #e63946;
+        .product-name {
+            flex: 1;
+        }
+
+        .product-price {
             font-weight: bold;
-            margin-right: 10px;
+            color: #e63946;
+            white-space: nowrap;
         }
 
         .dropdown-content li:last-child {
@@ -157,43 +161,44 @@
 
     <div class="container">
         <div class="banner">
-            <img src="banner%201.png" alt="SuperCauchos Banner" class="banner-img">
+            <img src="banner%201.png" alt="Banner" class="banner-img">
         </div>
 
         <div class="descripcion">
-            Explora nuestras promociones tecnológicas exclusivas. Haz clic en cada categoría para ver los detalles.
+            ¡Bienvenidos! Explora nuestras ofertas exclusivas en lubricantes. Haz clic en cada marca para ver los precios.
         </div>
 
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <img src="BOTON%201.png" alt="Promoción 1">
+                <img src="BOTON%201.png" alt="Promo Motul">
             </button>
             <ul class="dropdown-content">
-                <li>Garantía extendida por 1 año</li>
-                <li>Instalación de software incluida</li>
-                <li>Soporte técnico 24/7</li>
+                <li><span class="product-name">4100 PROTECT 15W40 CAJA 12 X 1L SEMISINTETICO</span> <span class="product-price">$100</span></li>
+                <li><span class="product-name">5100 15W50 4T CAJA 12 X 1 L SEMISINTETICO</span> <span class="product-price">$124</span></li>
+                <li><span class="product-name">3000 20W50 4T (MINERAL) CAJA 12 X 1 LITRO</span> <span class="product-price">$100</span></li>
+                <li><span class="product-name">TEKMA MEGA X LD 15W40 20L SEMISINTETICO DIESEL</span> <span class="product-price">$145</span></li>
             </ul>
         </div>
 
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <img src="BOTON%202.png" alt="Promoción 2">
+                <img src="BOTON%202.png" alt="Promo Voltex">
             </button>
             <ul class="dropdown-content">
-                <li>Descuento del 20% en accesorios</li>
-                <li>Envío gratuito a toda la ciudad</li>
-                <li>Cupón de regalo para tu próxima compra</li>
+                <li><span class="product-name">TAMBOR 15W40 SEMISINTETICO</span> <span class="product-price">$850</span></li>
+                <li><span class="product-name">SAE 15W40 API SP</span> <span class="product-price">$30</span></li>
+                <li><span class="product-name">MOTO 4T SAE 20W50 JASO MA2 API SL</span> <span class="product-price">$26</span></li>
             </ul>
         </div>
 
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <img src="BOTON%203.png" alt="Promoción 3">
+                <img src="BOTON%203.png" alt="Promo Mobil">
             </button>
             <ul class="dropdown-content">
-                <li>Financiamiento hasta 12 meses</li>
-                <li>Recibimos tu equipo usado</li>
-                <li>Promoción válida hasta agotar existencias</li>
+                <li><span class="product-name">Mobil SUPER 1000 20W-50</span> <span class="product-price">$73</span></li>
+                <li><span class="product-name">Mobil DELVAC LEGEND 1350 SAE 50 PAILA</span> <span class="product-price">$110</span></li>
+                <li><span class="product-name">Mobil SUPER 2000 X1 10W-40</span> <span class="product-price">$87</span></li>
             </ul>
         </div>
 
@@ -205,8 +210,6 @@
     <script>
         function toggleDropdown(button) {
             const content = button.nextElementSibling;
-            
-            // Cerrar otros que estén abiertos
             const allContents = document.querySelectorAll('.dropdown-content');
             
             allContents.forEach((item) => {
@@ -215,11 +218,9 @@
                 }
             });
 
-            // Abrir/Cerrar el actual
             content.classList.toggle('show');
         }
 
-        // Cerrar al hacer clic fuera
         document.addEventListener('click', function(event) {
             if (!event.target.closest('.dropdown-section')) {
                 document.querySelectorAll('.dropdown-content').forEach(content => {
