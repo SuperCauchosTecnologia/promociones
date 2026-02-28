@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Promociones</title>
+    <title>SuperCauchos Tecnología - Promociones</title>
     <style>
+        /* --- ESTILOS GENERALES --- */
         * {
             margin: 0;
             padding: 0;
@@ -28,7 +29,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             overflow: hidden;
             padding: 0 20px 30px 20px;
-            transition: max-width 0.3s ease;
         }
 
         @media (min-width: 768px) {
@@ -38,37 +38,25 @@
             }
         }
 
+        /* --- ENCABEZADO CON BANNER 1 --- */
         .banner {
-            background: linear-gradient(135deg, #e63946 0%, #2c3e50 100%);
+            background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 30px 20px 40px 20px;
             margin: 0 -20px 20px -20px;
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
+            overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .banner-img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
-            max-height: 150px;
-            margin-bottom: 15px;
+            display: block;
         }
 
-        .banner h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .banner p {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-top: 8px;
-        }
-
+        /* --- DESCRIPCIÓN --- */
         .descripcion {
             background: #f0f4ff;
             padding: 18px;
@@ -79,93 +67,82 @@
             font-size: 1rem;
             line-height: 1.5;
             border-left: 5px solid #e63946;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
+        /* --- BOTONES DE IMAGEN DESPLEGABLES --- */
         .dropdown-section {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .dropdown-btn {
             width: 100%;
-            background: white;
-            border: 2px solid #ccc;
-            border-radius: 0;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #1a1a1a;
+            background: none;
+            border: none;
+            padding: 0;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+            outline: none;
+            border-radius: 15px;
+            overflow: hidden;
+            display: block;
+        }
+
+        .dropdown-btn:hover {
+            transform: scale(1.02);
         }
 
         .dropdown-btn img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        .dropdown-btn span {
-            flex: 1;
-            text-align: left;
-        }
-
-        .dropdown-btn .arrow {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            transition: transform 0.3s ease;
-        }
-
-        .dropdown-btn.active {
-            background: #fdeded;
-            border-color: #e63946;
-        }
-
-        .dropdown-btn.active .arrow {
-            transform: rotate(180deg);
-            color: #e63946;
-        }
-
+        /* --- CONTENIDO DE LA LISTA --- */
         .dropdown-content {
-            list-style-type: disc;
-            margin: 5px 0 15px 0;
-            padding-left: 35px;
-            padding-right: 15px;
-            background: #fafcff;
-            border-radius: 0;
-            border: 1px solid #ccc;
+            list-style-type: none;
+            margin: -10px 10px 15px 10px;
+            padding: 0 20px;
+            background: #ffffff;
+            border-radius: 0 0 15px 15px;
+            border: 1px solid #eee;
             border-top: none;
             max-height: 0;
             opacity: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
-            padding-top: 0;
-            padding-bottom: 0;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
         }
 
         .dropdown-content.show {
-            max-height: 300px;
+            max-height: 500px;
             opacity: 1;
-            padding-top: 15px;
-            padding-bottom: 15px;
+            padding-top: 25px;
+            padding-bottom: 20px;
         }
 
         .dropdown-content li {
-            padding: 8px 0;
-            color: #334155;
-            font-size: 1rem;
+            padding: 12px 0;
+            color: #444;
+            font-size: 1.1rem;
             border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-content li::before {
+            content: "•";
+            color: #e63946;
+            font-weight: bold;
+            margin-right: 10px;
         }
 
         .dropdown-content li:last-child {
             border-bottom: none;
         }
 
-        .dropdown-btn, .dropdown-content li {
+        /* Evitar el resaltado azul en móviles */
+        .dropdown-btn {
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -178,79 +155,77 @@
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="banner">
-            <img src="banner.png" alt="Banner" class="banner-img">
-            <h1>Promociones</h1>
-            <p>¡Bienvenidos!</p>
+            <img src="banner%201.png" alt="SuperCauchos Banner" class="banner-img">
         </div>
 
         <div class="descripcion">
-            Descripción.
+            Explora nuestras promociones tecnológicas exclusivas. Haz clic en cada categoría para ver los detalles.
         </div>
 
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <img src="icono1.png" alt="Promo 1">
-                <span>Promo 1</span>
-                <i class="arrow">▼</i>
+                <img src="BOTON%201.png" alt="Promoción 1">
             </button>
             <ul class="dropdown-content">
-                <li>Detalle de promo 1</li>
-                <li>Otro</li>
+                <li>Garantía extendida por 1 año</li>
+                <li>Instalación de software incluida</li>
+                <li>Soporte técnico 24/7</li>
             </ul>
         </div>
 
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <img src="icono2.png" alt="Promo 2">
-                <span>Promo 2</span>
-                <i class="arrow">▼</i>
+                <img src="BOTON%202.png" alt="Promoción 2">
             </button>
             <ul class="dropdown-content">
-                <li>Detalle de promo 2</li>
-                <li>Otro</li>
+                <li>Descuento del 20% en accesorios</li>
+                <li>Envío gratuito a toda la ciudad</li>
+                <li>Cupón de regalo para tu próxima compra</li>
             </ul>
         </div>
 
         <div class="dropdown-section">
             <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                <img src="icono3.png" alt="Promo 3">
-                <span>Promo 3</span>
-                <i class="arrow">▼</i>
+                <img src="BOTON%203.png" alt="Promoción 3">
             </button>
             <ul class="dropdown-content">
-                <li>Detalle de promo 3</li>
-                <li>Otro </li>
+                <li>Financiamiento hasta 12 meses</li>
+                <li>Recibimos tu equipo usado</li>
+                <li>Promoción válida hasta agotar existencias</li>
             </ul>
         </div>
 
         <div class="footer">
-            <p>Tail</p>
+            <p>&copy; 2026 SuperCauchos Tecnología</p>
         </div>
     </div>
 
     <script>
         function toggleDropdown(button) {
             const content = button.nextElementSibling;
-            content.classList.toggle('show');
-            button.classList.toggle('active');
-
+            
+            // Cerrar otros que estén abiertos
+            const allContents = document.querySelectorAll('.dropdown-content');
             const allButtons = document.querySelectorAll('.dropdown-btn');
-            allButtons.forEach(btn => {
-                if (btn !== button && btn.classList.contains('active')) {
-                    btn.classList.remove('active');
-                    btn.nextElementSibling.classList.remove('show');
+            
+            allContents.forEach((item, index) => {
+                if (item !== content) {
+                    item.classList.remove('show');
                 }
             });
+
+            // Abrir/Cerrar el actual
+            content.classList.toggle('show');
         }
 
+        // Cerrar al hacer clic fuera
         document.addEventListener('click', function(event) {
             if (!event.target.closest('.dropdown-section')) {
-                const openButtons = document.querySelectorAll('.dropdown-btn.active');
-                openButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    btn.nextElementSibling.classList.remove('show');
+                document.querySelectorAll('.dropdown-content').forEach(content => {
+                    content.classList.remove('show');
                 });
             }
         });
