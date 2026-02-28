@@ -69,65 +69,71 @@
             border-left: 5px solid #e63946;
         }
 
-        /* --- BOTONES DE IMAGEN DESPLEGABLES --- */
+        /* --- BOTONES DE IMAGEN DESPLEGABLES (AJUSTADOS) --- */
         .dropdown-section {
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reducido un poco */
+            text-align: center; /* Centrar el botón dentro de la sección */
         }
 
         .dropdown-btn {
-            width: 100%;
             background: none;
             border: none;
             padding: 0;
             cursor: pointer;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             outline: none;
             border-radius: 15px;
             overflow: hidden;
-            display: block;
+            display: inline-block; /* Permitir ancho automático */
+            -webkit-tap-highlight-color: transparent;
         }
 
         .dropdown-btn:hover {
-            transform: scale(1.02);
+            transform: scale(1.03); /* Efecto un poco más notable */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Sombra al pasar el mouse */
         }
 
         .dropdown-btn img {
-            width: 100%;
-            height: auto;
+            /* --- AQUÍ ESTÁ EL AJUSTE DE TAMAÑO --- */
+            width: auto; /* Ancho automático basado en la altura */
+            max-width: 100%; /* No superar el ancho del contenedor */
+            height: 80px; /* Altura fija para todos los botones */
+            /* --- FIN DEL AJUSTE --- */
             display: block;
             border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            object-fit: contain; /* Asegurar que la imagen se vea completa */
         }
 
         /* --- CONTENIDO DE LA LISTA --- */
         .dropdown-content {
             list-style-type: none;
-            margin: -10px 10px 15px 10px;
+            margin: 10px auto; /* Centrado y separado */
             padding: 0 20px;
-            background: #ffffff;
-            border-radius: 0 0 15px 15px;
+            background: #fafcff;
+            border-radius: 15px;
             border: 1px solid #eee;
-            border-top: none;
+            max-width: 90%; /* Un poco más estrecho que los botones */
             max-height: 0;
             opacity: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease;
+            transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
         }
 
         .dropdown-content.show {
             max-height: 500px;
             opacity: 1;
-            padding-top: 25px;
+            padding-top: 20px;
             padding-bottom: 20px;
         }
 
         .dropdown-content li {
-            padding: 12px 0;
+            padding: 10px 0;
             color: #444;
-            font-size: 1.1rem;
+            font-size: 1rem;
             border-bottom: 1px dashed #ddd;
             display: flex;
             align-items: center;
+            text-align: left; /* Texto alineado a la izquierda */
         }
 
         .dropdown-content li::before {
@@ -139,11 +145,6 @@
 
         .dropdown-content li:last-child {
             border-bottom: none;
-        }
-
-        /* Evitar el resaltado azul en móviles */
-        .dropdown-btn {
-            -webkit-tap-highlight-color: transparent;
         }
 
         .footer {
@@ -209,9 +210,8 @@
             
             // Cerrar otros que estén abiertos
             const allContents = document.querySelectorAll('.dropdown-content');
-            const allButtons = document.querySelectorAll('.dropdown-btn');
             
-            allContents.forEach((item, index) => {
+            allContents.forEach((item) => {
                 if (item !== content) {
                     item.classList.remove('show');
                 }
